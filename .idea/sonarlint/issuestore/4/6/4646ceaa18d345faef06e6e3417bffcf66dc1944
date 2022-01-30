@@ -1,0 +1,24 @@
+
+W
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ά£°Ι8ϊª²δη/
+\
+squid:S106"9Replace this use of System.out or System.err by a logger.(ΐ³ηψÿÿÿÿ8ϊª²δη/
+Nsquid:S00108Ύ")Either remove or fill this block of code.(±—±ÿÿÿÿÿ8ϊª²δη/
+esquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(οςΕ8ϊª²δη/
+\
+squid:S106"9Replace this use of System.out or System.err by a logger.(φ¥φυψÿÿÿÿ8ϊª²δη/
+Nsquid:S00108‡")Either remove or fill this block of code.(±—±ÿÿÿÿÿ8ϊª²δη/
+psquid:S3776q"RRefactor this method to reduce its Cognitive Complexity from 35 to the 15 allowed.(Ογ‚¤8ϊª²δη/
+Isquid:S00108¬")Either remove or fill this block of code.(Ν½°†8ϊª²δη/
+U
+squid:S106H"9Replace this use of System.out or System.err by a logger.(εΡµg8ϊª²δη/
+V
+squid:S106 "9Replace this use of System.out or System.err by a logger.(ÿϋK8εΒ»δη/
+usquid:S3776V"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.( ÿωÿÿÿÿ8ϊª²δη/
+Nsquid:S1905&"0Remove this unnecessary cast to "SimpleFeature".(­ΤΛ8ϊª²δη/
+jsquid:S00112V"FDefine and throw a dedicated exception instead of using a generic one.( ÿωÿÿÿÿ8ϊª²δη/
+qsquid:UselessImportCheck"ARemove this unused import 'org.apache.commons.lang3.StringUtils'.(ΨΌΊϊÿÿÿÿ8ΝΣύη/
+Nsquid:S19058"0Remove this unnecessary cast to "SimpleFeature".(­ΤΛ8ϊª²δη/
+\
+squid:S106"9Replace this use of System.out or System.err by a logger.(πζ™ωÿÿÿÿ8ϊª²δη/
+esquid:S001120"FDefine and throw a dedicated exception instead of using a generic one.(£Ζ›²8ϊª²δη/

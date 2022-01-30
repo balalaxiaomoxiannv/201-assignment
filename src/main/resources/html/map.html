@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />-->
+    <style type="text/css">
+        body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+    </style>
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=3.0&ak=fEhanXmB5i8duQHjhpe15udvVGvPy8ZN"></script>
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/library/AreaRestriction/1.2/src/AreaRestriction_min.js"></script>
+    <title>百度地图</title>
+    <script type="text/javascript" language="javascript">
+        var map = undefined;
+        var countryPolygon = undefined;
+        function initMap() {
+            this.map = new BMap.Map("allmap");
+            this.map.centerAndZoom(new BMap.Point(0.0, 0.0), 1);  // 初始化地图,设置中心点坐标和地图级别
+            this.map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+
+        }
+        function drawContinent(ps) {
+            var geos = eval(ps);
+            var points = []
+            for (var i=0;i<geos.length;i++){
+                var x = geos[i].x;
+                var y = geos[i].y;
+                var point = new BMap.Point(x, y);
+                points.push(point);
+            }
+            points.push(points[0])
+            var polygon = new BMap.Polygon(points, {strokeColor:"red", strokeWeight:1, strokeOpacity:0.8});
+            this.map.addOverlay(polygon);
+            polygon.addEventListener("click", function(e){
+                var alertObj = {type:'continentsClick',data:e.point};
+                alert(JSON.stringify(alertObj));
+            });
+        }
+        function drawCountry(ps) {
+            var geos = eval(ps);
+            var points = []
+            for (var i=0;i<geos.length;i++){
+                var x = geos[i].x;
+                var y = geos[i].y;
+                var point = new BMap.Point(x, y);
+                points.push(point);
+            }
+            if(this.countryPolygon){
+                this.map.removeOverlay(this.countryPolygon);
+            }
+            this.countryPolygon = new BMap.Polygon(points, {strokeColor:"blue", strokeWeight:2, strokeOpacity:0.8});
+            this.map.addOverlay(this.countryPolygon);
+            this.countryPolygon.addEventListener("click", function(e){
+                var alertObj = {type:'countryClick',data:e.point};
+                alert(JSON.stringify(alertObj));
+            });
+        }
+        function showCountryData(upData) {
+            var data = eval(upData);
+            var opts = {
+                width : 300,     // 信息窗口宽度
+                height: 200,     // 信息窗口高度
+                title : "Information"  // 信息窗口标题
+            }
+            var infoWindow = new BMap.InfoWindow('<tr style="height: 200px;"><td style="height: 100%;"><img src="'+data.cover+'" style="width: 150px;height: 100px;" /></td><td style="height: 100%;">'+'Country:'+data.name+'<br/>Climate:'+data.climate+'<br/>Area:'+data.environmen+'<br/>Population:'+data.population+'<br/>GDP:'+data.testfield+'</td></tr>', opts);  // 创建信息窗口对象
+            var point = new BMap.Point(data.lng, data.lat);
+            this.map.openInfoWindow(infoWindow, point);
+        }
+    </script>
+</head>
+<body>
+<div id="allmap" style="width: 100%;height: 100%;background-color: aqua;"></div>
+</body>
+
+</html>
+
